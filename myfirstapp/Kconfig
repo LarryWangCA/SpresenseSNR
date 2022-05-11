@@ -1,0 +1,31 @@
+#
+# For a description of the syntax of this configuration file,
+# see the file kconfig-language.txt in the NuttX tools repository.
+#
+
+config EXAMPLES_MYFIRSTAPP
+	tristate "My first app example"
+	default n
+	depends on CXD56_AUDIO
+	---help---
+		Enable the my first app example
+
+if EXAMPLES_MYFIRSTAPP
+
+config EXAMPLES_MYFIRSTAPP_PROGNAME
+	string "Program name"
+	default "myfirstapp"
+
+config EXAMPLES_MYFIRSTAPP_PRIORITY
+	int "My first app task priority"
+	default 100
+
+config EXAMPLES_MYFIRSTAPP_STACKSIZE
+	int "My first app stack size"
+	default 2048
+
+config EXAMPLES_MYFIRSTAPP_USEPREPROC
+	bool "Use preprocess"
+	default n
+
+endif
